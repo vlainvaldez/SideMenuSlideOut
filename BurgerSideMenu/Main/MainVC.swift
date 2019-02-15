@@ -155,6 +155,11 @@ extension MainVC {
                     self.isExpanded = hasMovedGreaterThanHalfway
                     self.showSideMenu(hasMovedGreaterThanHalfway)
                 }
+            
+                if let pangesture = self.panGesture {
+                    self.mainVC.view.removeGestureRecognizer(pangesture)
+                    self.panGesture = nil
+                }
             default:
                 break
         }
