@@ -75,15 +75,30 @@ extension MainVC {
             case true:
                 let offSet: CGFloat = self.mainVC.view.frame.width - 80
 
-                self.animateView(with: offSet)
-                self.panGesture = UIPanGestureRecognizer(target: self, action: #selector(MainVC.didPan))
-                self.mainVC.view.addGestureRecognizer(self.panGesture)
+                self.animateView(with: offSet) {
+                    
+                    print(self.panGesture)
+                    
+                    self.panGesture = UIPanGestureRecognizer(target: self, action: #selector(MainVC.didPan))
+                    self.mainVC.view.addGestureRecognizer(self.panGesture)
+                }
+            
             case false:
-                self.animateView(with: 0)
-                
-                if let pangesture = self.panGesture {
-                    self.mainVC.view.removeGestureRecognizer(pangesture)
-                    self.panGesture = nil
+                self.animateView(with: 0) {
+//                    if let pangesture = self.panGesture {
+//                        self.mainVC.view.removeGestureRecognizer(pangesture)
+//                        self.panGesture = nil
+                    
+                        self.mainVC.view.gestureRecognizers!.forEach({ (gesture: UIGestureRecognizer) in
+                            self.mainVC.view.removeGestureRecognizer(gesture)
+                        })
+                        
+                        let edgePanGesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(MainVC.panAction))
+                        edgePanGesture.edges = .left
+                        self.mainVC.view.addGestureRecognizer(edgePanGesture)
+                        
+                        print("removed gesture")
+//                    }
                 }
             
         }
@@ -94,8 +109,6 @@ extension MainVC {
 extension MainVC {
     @objc func panAction(sender: UIScreenEdgePanGestureRecognizer) {
         let translation = sender.translation(in: sender.view!)
-        
-        print("Trans:\(translation)")
         
         if !isExpanded {
             self.configureSideMenuController()
@@ -122,6 +135,8 @@ extension MainVC {
     
     @objc func didPan( _ sender: UIPanGestureRecognizer) {
         
+        print("alive pan \(self.panGesture)")
+        
         switch sender.state {
             case .began:
                 self.configureSideMenuController()
@@ -141,10 +156,6 @@ extension MainVC {
                     if hasMovedGreaterThanHalfway == true {
                         self.isExpanded = false
                         self.showSideMenu(false)
-                        if let pangesture = self.panGesture {
-                            self.mainVC.view.removeGestureRecognizer(pangesture)
-                            self.panGesture = nil
-                        }
                     }
                 }
             
@@ -156,10 +167,6 @@ extension MainVC {
                     self.showSideMenu(hasMovedGreaterThanHalfway)
                 }
             
-                if let pangesture = self.panGesture {
-                    self.mainVC.view.removeGestureRecognizer(pangesture)
-                    self.panGesture = nil
-                }
             default:
                 break
         }
@@ -169,7 +176,7 @@ extension MainVC {
 // MARK: - Helper Methods
 extension MainVC {
     
-    private func animateView(with offSet: CGFloat ) {
+    private func animateView(with offSet: CGFloat , completion: @escaping () -> Void) {
         UIView.animate(
             withDuration: 0.5,
             delay: 0,
@@ -178,8 +185,12 @@ extension MainVC {
             options: UIView.AnimationOptions.curveLinear,
             animations: {
                 self.mainVC.view.frame.origin.x = offSet
-        },
-            completion: nil
+            },
+            completion: { (isCompleted: Bool) in
+                if isCompleted {
+                    completion()
+                }
+            }
         )
     }
     
