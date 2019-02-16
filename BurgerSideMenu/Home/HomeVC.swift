@@ -12,13 +12,22 @@ public final class HomeVC: UIViewController {
     
     public weak var delegate: HomeVCDelegate?
 
+    public override func loadView() {
+        super.loadView()
+        
+        self.view = HomeView()
+    }
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.view.backgroundColor = UIColor.gray
         
         self.configureNavigationBar()
     }
+}
+
+extension HomeVC {
+        unowned var rootView: HomeView { return self.view as! HomeView } // swiftlint:disable:this force_cast
+//        unowned var tableView: UITableView { return self.rootView.tableView }
 }
 
 extension HomeVC {

@@ -17,6 +17,12 @@
 		7CC72EF6221663230038F90A /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC72EF5221663230038F90A /* HomeVC.swift */; };
 		7CC72EF82216634B0038F90A /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC72EF72216634B0038F90A /* SideMenuVC.swift */; };
 		7CC72EFB22166A3D0038F90A /* HomeVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC72EFA22166A3D0038F90A /* HomeVCDelegate.swift */; };
+		7CC72EFD2217CA000038F90A /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC72EFC2217CA000038F90A /* SideMenuView.swift */; };
+		7CC72EFF2217D1230038F90A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC72EFE2217D1230038F90A /* HomeView.swift */; };
+		7CC72F032217E2480038F90A /* UIKitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC72F022217E2480038F90A /* UIKitExtension.swift */; };
+		7CC72F052217E3030038F90A /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC72F042217E3030038F90A /* SideMenuCell.swift */; };
+		7CC72F0822182FBF0038F90A /* FirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC72F0722182FBF0038F90A /* FirstCell.swift */; };
+		7CC72F0A2218301C0038F90A /* SecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC72F092218301C0038F90A /* SecondCell.swift */; };
 		CBF32DBB9B4FB1A662E59495 /* Pods_BurgerSideMenuTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FB8FDCD8A1A4E3E869A90FF /* Pods_BurgerSideMenuTests.framework */; };
 		E014415AF48AE51CEC97FF2A /* Pods_BurgerSideMenuUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43F8D244297DDDC9F1226147 /* Pods_BurgerSideMenuUITests.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +64,12 @@
 		7CC72EF5221663230038F90A /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		7CC72EF72216634B0038F90A /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
 		7CC72EFA22166A3D0038F90A /* HomeVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCDelegate.swift; sourceTree = "<group>"; };
+		7CC72EFC2217CA000038F90A /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
+		7CC72EFE2217D1230038F90A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		7CC72F022217E2480038F90A /* UIKitExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitExtension.swift; sourceTree = "<group>"; };
+		7CC72F042217E3030038F90A /* SideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
+		7CC72F0722182FBF0038F90A /* FirstCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCell.swift; sourceTree = "<group>"; };
+		7CC72F092218301C0038F90A /* SecondCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondCell.swift; sourceTree = "<group>"; };
 		A66B0ED2B5364B8FBBCA949C /* Pods-BurgerSideMenu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BurgerSideMenu.release.xcconfig"; path = "Pods/Target Support Files/Pods-BurgerSideMenu/Pods-BurgerSideMenu.release.xcconfig"; sourceTree = "<group>"; };
 		C669595A3D98E786DEB28B29 /* Pods_BurgerSideMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BurgerSideMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C94FB313626F9543E83F38A7 /* Pods-BurgerSideMenuTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BurgerSideMenuTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BurgerSideMenuTests/Pods-BurgerSideMenuTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +130,7 @@
 		7CC72EC1221659590038F90A /* BurgerSideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				7CC72F002217E22C0038F90A /* Utilities */,
 				7CC72EF122165A8B0038F90A /* Supporting Files */,
 				7CC72EF022165A880038F90A /* App Controller */,
 				7CC72EF222165AD10038F90A /* Main */,
@@ -174,7 +187,10 @@
 		7CC72EF3221660FA0038F90A /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				7CC72F0622182F950038F90A /* CollectionViewCells */,
 				7CC72EF72216634B0038F90A /* SideMenuVC.swift */,
+				7CC72EFC2217CA000038F90A /* SideMenuView.swift */,
+				7CC72F042217E3030038F90A /* SideMenuCell.swift */,
 			);
 			path = SideMenu;
 			sourceTree = "<group>";
@@ -184,6 +200,7 @@
 			children = (
 				7CC72EF922166A280038F90A /* Protocols */,
 				7CC72EF5221663230038F90A /* HomeVC.swift */,
+				7CC72EFE2217D1230038F90A /* HomeView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -194,6 +211,31 @@
 				7CC72EFA22166A3D0038F90A /* HomeVCDelegate.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7CC72F002217E22C0038F90A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				7CC72F012217E2340038F90A /* Extensions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		7CC72F012217E2340038F90A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7CC72F022217E2480038F90A /* UIKitExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7CC72F0622182F950038F90A /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				7CC72F0722182FBF0038F90A /* FirstCell.swift */,
+				7CC72F092218301C0038F90A /* SecondCell.swift */,
+			);
+			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
 		7ED5C8DD73B7EE27072B141B /* Pods */ = {
@@ -444,8 +486,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CC72EFD2217CA000038F90A /* SideMenuView.swift in Sources */,
+				7CC72F0A2218301C0038F90A /* SecondCell.swift in Sources */,
+				7CC72EFF2217D1230038F90A /* HomeView.swift in Sources */,
+				7CC72F032217E2480038F90A /* UIKitExtension.swift in Sources */,
 				7CC72EF6221663230038F90A /* HomeVC.swift in Sources */,
+				7CC72F0822182FBF0038F90A /* FirstCell.swift in Sources */,
 				7CC72EFB22166A3D0038F90A /* HomeVCDelegate.swift in Sources */,
+				7CC72F052217E3030038F90A /* SideMenuCell.swift in Sources */,
 				7CC72EC5221659590038F90A /* MainVC.swift in Sources */,
 				7CC72EF82216634B0038F90A /* SideMenuVC.swift in Sources */,
 				7CC72EC3221659590038F90A /* AppDelegate.swift in Sources */,
