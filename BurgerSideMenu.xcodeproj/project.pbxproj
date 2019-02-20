@@ -421,7 +421,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-BurgerSideMenu/Pods-BurgerSideMenu-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-BurgerSideMenu/Pods-BurgerSideMenu-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -432,7 +432,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BurgerSideMenu/Pods-BurgerSideMenu-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BurgerSideMenu/Pods-BurgerSideMenu-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A558374FADB6EBEDE18B33DA /* [CP] Check Pods Manifest.lock */ = {

@@ -44,7 +44,7 @@ public final class SideMenuVC: UIViewController {
 // MARK: - Views
 
 extension SideMenuVC {
-    unowned var rootView: SideMenuView { return self.view as! SideMenuView } // swiftlint:disable:this force_cast
+    public unowned var rootView: SideMenuView { return self.view as! SideMenuView } // swiftlint:disable:this force_cast
     unowned var collectionView: UICollectionView { return self.rootView.collectionView }
 }
 

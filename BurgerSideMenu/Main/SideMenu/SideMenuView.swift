@@ -48,4 +48,10 @@ public final class SideMenuView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    public func remakeConstraint() {
+        self.snp.remakeConstraints { (make: ConstraintMaker) -> Void in
+            make.edges.equalToSuperview()
+        }
+    }
 }

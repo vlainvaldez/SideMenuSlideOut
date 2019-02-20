@@ -28,7 +28,7 @@ public final class MainVC: UIViewController {
     }
     
     // MARK: Stored Properties
-    private var menuVC: UINavigationController!
+    private var menuVC: SideMenuVC!
     private var mainVC: UIViewController!
     private var isExpanded: Bool = false
     private var origCenter: CGPoint = CGPoint(x: 0.0, y: 0.0)
@@ -64,13 +64,13 @@ extension MainVC {
     private func configureSideMenuController() {
         if self.menuVC == nil {
             let sideMenuVC = SideMenuVC()
-            self.menuVC = UINavigationController(
-                rootViewController: sideMenuVC
-            )
-            self.menuVC.navigationBar.isHidden = true
+            self.menuVC = sideMenuVC
+            
             self.addChild(self.menuVC)
             self.view.insertSubview(self.menuVC.view, at: 0)
             self.menuVC.didMove(toParent: self)
+            
+            self.menuVC.rootView.remakeConstraint()
         }
 
     }
